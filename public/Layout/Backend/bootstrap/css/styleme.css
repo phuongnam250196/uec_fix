@@ -1,0 +1,16 @@
+.wrapper .content-wrapper .content .box.box-info .box-body .list-group li {
+  border: none; }
+  .wrapper .content-wrapper .content .box.box-info .box-body .list-group li a {
+    font-size: 16px; }
+  .wrapper .content-wrapper .content .box.box-info .box-body .list-group li:hover {
+    background: #d9edf7; }
+    .wrapper .content-wrapper .content .box.box-info .box-body .list-group li:hover a {
+      color: #00c0ef; }
+.wrapper .content-wrapper .content .box.box-info .box-body .table .cut-string {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 4;
+  display: -webkit-box;
+  -webkit-box-orient: vertical; }
+
+/*# sourceMappingURL=styleme.css.map */

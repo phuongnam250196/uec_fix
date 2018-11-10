@@ -1,0 +1,34 @@
+.wrapper {
+	.content-wrapper {
+		.content {
+			.box.box-info {
+				.box-body {
+					.list-group {
+						li{
+							border: none;
+							a {
+								font-size: 16px;
+							}
+							&:hover {
+								background: #d9edf7;
+								a {
+									color: #00c0ef;
+								}
+							}
+						}
+					}
+					.table {
+						.cut-string {
+							overflow: hidden;
+                            text-overflow: ellipsis;
+                            -webkit-line-clamp: 4;
+                            display: -webkit-box;
+                            -webkit-box-orient: vertical;
+                           
+						}
+					}
+				}
+			}
+		}
+	}
+}

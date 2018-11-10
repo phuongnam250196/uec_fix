@@ -1,0 +1,35 @@
+
+@media (max-width: 1199.98px) { ... }
+@media (max-width: 991.98px) { ... }
+@media (max-width: 767.98px) { ...  }
+@media (max-width: 575.98px) { ... }
+
+
+
+
+/*Responsive table*/
+table.responsive {
+    width: 100%;
+}
+table.responsive tr{
+    vertical-align: top;
+}
+@media screen and (max-width: 600px) {
+    * {
+        box-sizing: border-box;
+    }
+    /* break table */
+    .responsive tr {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+    .responsive td {
+        display: block;
+        width: 50%;
+        text-align: center;
+    }
+    .responsive td {
+        width: 100%;
+    }
+}
