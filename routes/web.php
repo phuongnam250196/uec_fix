@@ -64,7 +64,7 @@ Route::group(['namespace'=>'TrangChu'], function() {
 	// private
 
 	// Doanh nghiệp private
-	Route::group(['prefix'=>'enterprise', 'middleware'=>['checkLogoutAll', 'CheckLoginEnterprise']], function() {
+	Route::group(['prefix'=>'enterprise', 'middleware'=>['checkLogoutAll', 'testabc']], function() {
 		Route::get('/', 'EnterpriseController@getDoanhnghiepPri');
 		Route::get('/info/{id}', 'EnterpriseController@getDNInfo');
 		Route::get('/change_password/{id}', 'EnterpriseController@getResetpassword');
