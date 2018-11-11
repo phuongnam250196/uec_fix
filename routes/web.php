@@ -99,7 +99,7 @@ Route::group(['namespace'=>'TrangChu'], function() {
 	});
 
 	// Nhà trường private
-	Route::group(['prefix'=>'school', 'middleware'=>['checkLogoutAll','CheckLoginSchool']], function() {
+	Route::group(['prefix'=>'school', 'middleware'=>['chekcNT','CheckLoginSchool']], function() {
 		Route::get('/', 'SchoolController@getSchoolPri');
 		Route::get('/info', 'SchoolController@getSchooInfo');
 		Route::get('/change_password', 'SchoolController@getSchooChangepassword');
