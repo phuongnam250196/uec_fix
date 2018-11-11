@@ -54,7 +54,7 @@ class EnterpriseController extends Controller
             $enter->enterprise_describe = $request->dn_describe;
             $enter->area_id = $request->dn_area;
            
-            $file =  $request->tt_img;
+            $file =  $request->dn_logo;
             $path = 'uploads/public/';
             $modifiedFileName = time().'-'.$file->getClientOriginalName();
             if($file->move($path,$modifiedFileName)){
@@ -152,7 +152,7 @@ class EnterpriseController extends Controller
         $enter->enterprise_web = $request->dn_website;
         $enter->enterprise_describe = $request->dn_describe;
         $enter->area_id = $request->dn_area;
-        $file =  $request->tt_img;
+        $file =  $request->dn_logo;
         $path = 'uploads/public/';
         $modifiedFileName = time().'-'.$file->getClientOriginalName();
         if($file->move($path,$modifiedFileName)){
