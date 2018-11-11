@@ -33,14 +33,19 @@ class PostController extends Controller
     	return view('backend.baiviet.adm_tintuc');
     }
     public function postTintuc(NewsRequest $request) {
-    	$filename = $request->tt_img->getClientOriginalName();
+    	// $filename = $request->tt_img->getClientOriginalName();
     	$enter = new NewsModel;
     	$enter->news_name = $request->tt_title;
     	$enter->news_slug = str_slug($request->tt_title);
-    	$enter->news_img = $filename;
+    	// $enter->news_img = $filename;
     	$enter->news_content = $request->tt_content;
-		$enter->save();
-		$request->tt_img->storeAs('tintuc', $filename);
+		 $file =  $request->tt_img;
+        $path = 'uploads/tintuc/';
+        $modifiedFileName = time().'-'.$file->getClientOriginalName();
+        if($file->move($path,$modifiedFileName)){
+            $enter->news_img = $path.$modifiedFileName;
+        }
+        $enter->save();
     	return redirect('admin/baiviet/tintuc/danhsach')->with('success', 'Thêm mới thành công!');
     }
     public function getEditTintuc($id) {

@@ -42,7 +42,7 @@
                     <tr>
                       <td>{{$tintuc->id}}</td>
                       <td>{{$tintuc->news_name}}</td>
-                      <td><img src="{{asset('../storage/app/tintuc/'.$tintuc->news_img)}}" width="100"></td>
+                      <td><img src="{{asset('/'.$tintuc->news_img)}}" width="100"></td>
                       <td><div class="cut-string">{!! strip_tags(preg_replace("/<img[^>]+\>/i", "(image) ", $tintuc->news_content)) !!}</div></td>
                       <td><a href="{{asset('admin/baiviet/tintuc/edit/'.$tintuc->id)}}" class="btn btn-warning"><i class="fa fa-edit"></i> Sửa</a></td>
                       <td><a href="{{asset('admin/baiviet/tintuc/delete/'.$tintuc->id)}}" class="btn btn-danger" onclick="return confirm('Bạn có chắc chắn muốn xóa không?')"><i class="fa fa-trash-o"></i> Xóa</a></td>
