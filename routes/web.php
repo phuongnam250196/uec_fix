@@ -148,7 +148,7 @@ Route::group(['namespace'=>'TrangChu'], function() {
 	});
 
 	// Học sinh private
-	Route::group(['prefix'=>'student', 'middleware'=>['checkLogoutAll', 'CheckLoginStudent'], 'name'=>'a'], function() {
+	Route::group(['prefix'=>'student', 'middleware'=>['checkLogoutAll', 'chekcSV'], 'name'=>'a'], function() {
 		Route::get('/', 'StudentController@getTintuyendung');
 		Route::get('/info', 'StudentController@getStudentInfo');
 		Route::get('/reset_password', 'StudentController@getStudentResetpassword');
