@@ -69,7 +69,6 @@
                                 <img src="{{asset('/'.$new2->news_img)}}" alt="">
                                 <div class="noidung-post-x">
                                     {!! strip_tags(preg_replace("/<img[^>]+\>/i", "(image) ", $new2->news_content)) !!}
-                                    {{-- {!! preg_replace("/<img[^>]+\>/i", "(image) ", $new2->news_content) !!} --}}
                                 </div>
                             </div>
                             <br>
