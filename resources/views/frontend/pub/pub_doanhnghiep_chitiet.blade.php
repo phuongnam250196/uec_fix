@@ -48,7 +48,7 @@
                                 <div class="pub_dn-col-content">
                                     <div class="row">
                                         <div class="col-md-3">
-                                            <img style="width: 100%" src="{{url('../storage/app/public/'.$enterp->enterprise_logo)}}" alt="">
+                                            <img style="width: 100%" src="{{url('/'.$enterp->enterprise_logo)}}" alt="">
                                         </div>
                                         <div class="col-md-9">
                                             <div class="">

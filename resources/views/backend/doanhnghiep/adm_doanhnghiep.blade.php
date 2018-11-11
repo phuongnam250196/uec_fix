@@ -57,7 +57,7 @@
                                 @foreach($enter as $a)
                                   <tr id="url{{$a->id}}">
                                     <td class="text-center">{{$a->id}}</td>
-                                    <td><img src="{{asset('../storage/app/public/'.$a->enterprise_logo)}}" width="50"></td>
+                                    <td><img src="{{asset('/'.$a->enterprise_logo)}}" width="50"></td>
                                     <td>{{$a->enterprise_full_name}}</td>
                                     <td>{{$a->enterprise_phone}}</td>
                                     <td>{{$a->enterprise_email}}</td>

@@ -171,7 +171,7 @@
                     url: '/admin/doanhnghiep/taikhoan/get-avatar/'+id,
                     type: 'get',
                     success:function(data){
-                        $('#image-avatar').attr('src','{{asset('../storage/app/public/')}}/' +data+'?'+new Date())
+                        $('#image-avatar').attr('src','{{asset('/')}}/' +data+'?'+new Date())
                         console.log(data)
                     },
                     errors: function (err) {

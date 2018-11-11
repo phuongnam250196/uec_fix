@@ -57,7 +57,7 @@
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <input id="img" type="file" name="dn_logo" class="form-control" style="display: none" onchange="changeImg(this)" >
-                                        <img id="avatar" class="thumbnail" src="{{url('../storage/app/public/'.$enp->enterprise_logo)}}" width="100%">
+                                        <img id="avatar" class="thumbnail" src="{{url('/'.$enp->enterprise_logo)}}" width="100%">
                                         @if($errors->has('dn_logo'))
                                           <p class="help text-danger">{{ $errors->first('dn_logo') }}</p>
                                         @endif

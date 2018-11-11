@@ -51,7 +51,7 @@
                                 @foreach($dnct as $dnct)
                                   <tr>
                                     <td class="text-center">{{$dnct->enp_id}}</td>
-                                    <td><img src="{{asset('../storage/app/public/'.$dnct->enp_logo)}}" width="50"></td>
+                                    <td><img src="{{asset('/'.$dnct->enp_logo)}}" width="50"></td>
                                     <td>{{$dnct->enp_full_name}}</td>
                                     <td><a href="#" class="btn btn-warning"><i class="fa fa-edit"></i> Sửa</a></td>
                                     <td><a href="#" class="btn btn-danger"><i class="fa fa-trash-o"></i> Xóa</a></td>

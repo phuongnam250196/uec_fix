@@ -116,7 +116,7 @@
             <div class="owl-carousel owl-all">
                 @foreach(Enterprise() as $en)
               <div class="item">
-                <a href="{{url('doanhnghiep/chitiet/'.$en->id)}}" title="{{$en->enterprise_name}}"><img src="{{url('../storage/app/public/'.$en->enterprise_logo)}}" ></a>
+                <a href="{{url('doanhnghiep/chitiet/'.$en->id)}}" title="{{$en->enterprise_name}}"><img src="{{url('/'.$en->enterprise_logo)}}" ></a>
               </div>
               @endforeach
             </div>

@@ -41,12 +41,10 @@ class EnterpriseController extends Controller
     }
     public function postAddThongtin(Request $request) {
         if(!Input::get('save')) {
-            $filename = $request->dn_logo->getClientOriginalName();
             $enter = new EnterprisesModel;
             $enter->enterprise_name = $request->dn_acronym;
             $enter->enterprise_full_name = $request->dn_name;
             $enter->enterprise_slug = str_slug($request->dn_name);
-            $enter->enterprise_logo = $filename;
             $enter->enterprise_size = $request->dn_size;
             $enter->enterprise_address = $request->dn_address;
             $enter->enterprise_tax_code = $request->dn_tax_code;
@@ -55,8 +53,14 @@ class EnterpriseController extends Controller
             $enter->enterprise_web = $request->dn_website;
             $enter->enterprise_describe = $request->dn_describe;
             $enter->area_id = $request->dn_area;
+           
+            $file =  $request->tt_img;
+            $path = 'uploads/public/';
+            $modifiedFileName = time().'-'.$file->getClientOriginalName();
+            if($file->move($path,$modifiedFileName)){
+                $enter->enterprise_logo = $path.$modifiedFileName;
+            }
             $enter->save();
-            $request->dn_logo->storeAs('public', $filename);
             return redirect('admin/doanhnghiep/thongtin')->with('message', 'Thêm mới thành công');
         } else {
             if($request->hasFile('file_excel_dn')){
@@ -137,11 +141,9 @@ class EnterpriseController extends Controller
 
     public function postEditThongtin(EditEnterprisesInfoRequest $request, $id) {
         $enter = EnterprisesModel::find($id);
-        $filename = $request->dn_logo->getClientOriginalName();
         $enter->enterprise_name = $request->dn_acronym;
         $enter->enterprise_full_name = $request->dn_name;
         $enter->enterprise_slug = str_slug($request->dn_name);
-        $enter->enterprise_logo = $filename;
         $enter->enterprise_size = $request->dn_size;
         $enter->enterprise_address = $request->dn_address;
         $enter->enterprise_tax_code = $request->dn_tax_code;
@@ -150,8 +152,13 @@ class EnterpriseController extends Controller
         $enter->enterprise_web = $request->dn_website;
         $enter->enterprise_describe = $request->dn_describe;
         $enter->area_id = $request->dn_area;
+        $file =  $request->tt_img;
+        $path = 'uploads/public/';
+        $modifiedFileName = time().'-'.$file->getClientOriginalName();
+        if($file->move($path,$modifiedFileName)){
+            $enter->enterprise_logo = $path.$modifiedFileName;
+        }
         $enter->save();
-        $request->dn_logo->storeAs('public', $filename);
         return redirect()->intended('admin/doanhnghiep/thongtin')->with("success", "Sửa thông tin doanh nghiệp thành công");
     }
     public function getDeleteThongtin($id) {
