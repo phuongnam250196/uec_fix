@@ -42,7 +42,7 @@
                     <tr>
                       <td>{{$jobf->id}}</td>
                       <td><a href="#" data-toggle="modal" data-target="#myModal">{{$jobf->jobfair_name}}</a></td>
-                      <td><img src="{{asset('../storage/app/jobfair/'.$jobf->jobfair_img)}}" width="100"></td>
+                      <td><img src="{{asset('../storage/app/'.$jobf->jobfair_img)}}" width="100"></td>
                       <td><div class="cut-string">{!! strip_tags(preg_replace("/<img[^>]+\>/i", "(image) ", $jobf->jobfair_content)) !!}</div></td>
                      <td><a href="{{asset('admin/baiviet/jobfair/edit/'.$jobf->id)}}" class="btn btn-warning"><i class="fa fa-edit"></i> Sửa</a></td>
                       <td><a href="{{asset('admin/baiviet/jobfair/delete/'.$jobf->id)}}" onclick="return confirm('Bạn có chắc muốn xóa không???')" class="btn btn-danger"><i class="fa fa-trash-o"></i> Xóa</a></td>

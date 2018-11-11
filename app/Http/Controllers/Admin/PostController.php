@@ -257,7 +257,7 @@ class PostController extends Controller
     	$enter->jobfair_img = $filename;
     	$enter->jobfair_content = $request->tt_content;
 		$enter->save();
-		$request->tt_img->storeAs('jobfair', $filename);
+		$request->tt_img->storeAs('/', $filename);
     	return redirect('admin/baiviet/jobfair/danhsach');
     }
      public function getEditJobfair($id) {
