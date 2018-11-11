@@ -91,10 +91,13 @@ class TeacherController extends Controller
             if(empty($request->img)) {
 
             } else {
-                $filename = $request->img->getClientOriginalName();
-                $data->teacher_img = $filename;
+                $file =  $request->img;
+                $path = 'uploads/giaovien/';
+                $modifiedFileName = time().'-'.$file->getClientOriginalName();
+                if($file->move($path,$modifiedFileName)){
+                    $data->teacher_img = $path.$modifiedFileName;
+                }
                 $data->save();
-                $request->img->storeAs('giaovien', $filename);
             }
             
             return back();

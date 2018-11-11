@@ -86,10 +86,13 @@ class SchoolController extends Controller
             if(empty($request->img)) {
 
             } else {
-                $filename = $request->img->getClientOriginalName();
-                $data->school_logo = $filename;
+                 $file =  $request->img;
+                $path = 'uploads/school/';
+                $modifiedFileName = time().'-'.$file->getClientOriginalName();
+                if($file->move($path,$modifiedFileName)){
+                    $data->school_logo = $path.$modifiedFileName;
+                }
                 $data->save();
-                $request->img->storeAs('school', $filename);
             }
             
             return back();

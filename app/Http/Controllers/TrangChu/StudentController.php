@@ -99,11 +99,6 @@ class StudentController extends Controller
         $studentInfo = StudentModel::join('uec_user', 'uec_user.student_id', '=', 'uec_student.id')
         ->where('uec_user.id', Auth::id())->select('uec_student.id')->first();
         $data = StudentModel::find($studentInfo->id);
-        if(!empty($request->student_img)) {
-            $filename = $request->student_img->getClientOriginalName();
-            $data->student_img = $filename;
-            $request->student_img->storeAs('sinhvien', $filename);
-        }
         $data->science_id = $request->science_id;
         $data->specialize_id = $request->specialize_id;
         $data->course_id = $request->course_id;
@@ -111,6 +106,13 @@ class StudentController extends Controller
         $data->class_id = $request->class_id;
         $data->student_address = $request->student_address;
         $data->teacher_id = $request->teacher_id;
+
+        $file =  $request->student_img;
+        $path = 'uploads/sinhvien/';
+        $modifiedFileName = time().'-'.$file->getClientOriginalName();
+        if($file->move($path,$modifiedFileName)){
+            $data->student_img = $path.$modifiedFileName;
+        }
         $data->save();
         return redirect('/student/info')->with('success', 'Cập nhật thông tin thành công');
     }

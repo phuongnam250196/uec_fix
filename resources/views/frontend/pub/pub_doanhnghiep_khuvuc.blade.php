@@ -1,3 +1,4 @@
+
 @extends('frontend.master')
 @section('title', 'Thông tin doanh nghiệp')
 @section('banner')

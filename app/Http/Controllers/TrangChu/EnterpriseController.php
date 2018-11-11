@@ -102,10 +102,13 @@ class EnterpriseController extends Controller
             if(empty($request->dn_logo)) {
 
             } else {
-                $filename = $request->dn_logo->getClientOriginalName();
-                $data->enterprise_logo = $filename;
+                 $file =  $request->dn_logo;
+                $path = 'uploads/public/';
+                $modifiedFileName = time().'-'.$file->getClientOriginalName();
+                if($file->move($path,$modifiedFileName)){
+                    $data->enterprise_logo = $path.$modifiedFileName;
+                }
                 $data->save();
-                $request->dn_logo->storeAs('public', $filename);
             }
             
             return back()->with('message', 'Cập nhật ảnh thành công');
@@ -116,10 +119,13 @@ class EnterpriseController extends Controller
     public function UploadImg(Request $request, $id) {
         if(Input::get('save')) {
             $data = EnterprisesModel::find($id);
-            $filename = $request->dn_logo->getClientOriginalName();
-            $data->enterprise_logo = $filename;
+            $file =  $request->dn_logo;
+            $path = 'uploads/public/';
+            $modifiedFileName = time().'-'.$file->getClientOriginalName();
+            if($file->move($path,$modifiedFileName)){
+                $data->enterprise_logo = $path.$modifiedFileName;
+            }
             $data->save();
-            $request->dn_logo->storeAs('public', $filename);
             return back();
         }
     }
@@ -168,10 +174,8 @@ class EnterpriseController extends Controller
             return back()->withInput()->withErrors($validator->errors());
         } else {
              $data = new TrainModel;
-            $filename = $request->training_img->getClientOriginalName();
             $data->training_name = $request->training_name;
             $data->training_slug = str_slug($request->training_name);
-            $data->training_img = $filename;
             $data->training_timeserving = $request->training_timeserving;
             $data->training_amount_student = $request->training_amount_student;
             $data->training_deadline = $request->training_deadline;
@@ -181,8 +185,14 @@ class EnterpriseController extends Controller
             $data->area_id = $request->area_id;
             $data->skill_id = $request->skill_id;
             $data->enterprise_id = $request->enterprise_id;
+
+            $file =  $request->training_img;
+            $path = 'uploads/khoadaotao/';
+            $modifiedFileName = time().'-'.$file->getClientOriginalName();
+            if($file->move($path,$modifiedFileName)){
+                $data->training_img = $path.$modifiedFileName;
+            }
             $data->save();
-            $request->training_img->storeAs('khoadaotao', $filename);
             // dd($data);
             return redirect()->intended('enterprise/list_kdt');
         }
@@ -202,12 +212,6 @@ class EnterpriseController extends Controller
         
         $data->training_name = $request->training_name;
         $data->training_slug = str_slug($request->training_name);
-        if(!empty($request->training_img)) {
-            $filename = $request->training_img->getClientOriginalName();
-            $data->training_img = $filename;
-            $request->training_img->storeAs('khoadaotao', $filename);
-        }
-        
         $data->training_timeserving = $request->training_timeserving;
         $data->training_amount_student = $request->training_amount_student;
         $data->training_deadline = $request->training_deadline;
@@ -217,6 +221,13 @@ class EnterpriseController extends Controller
         $data->area_id = $request->area_id;
         $data->skill_id = $request->skill_id;
         $data->enterprise_id = $request->enterprise_id;
+
+        $file =  $request->training_img;
+        $path = 'uploads/khoadaotao/';
+        $modifiedFileName = time().'-'.$file->getClientOriginalName();
+        if($file->move($path,$modifiedFileName)){
+            $data->training_img = $path.$modifiedFileName;
+        }
         $data->save();
         
         // dd($data);
@@ -262,9 +273,6 @@ class EnterpriseController extends Controller
         $data = new RecruitmentModel;
         $data->recruitment_name = $request->recruitment_name;
         $data->recruitment_slug = str_slug($request->recruitment_name);
-        $filename = $request->recruitment_img->getClientOriginalName();
-        $data->recruitment_img = $filename;
-        $request->recruitment_img->storeAs('tintuyendung', $filename);
         $data->recruitment_salary = $request->recruitment_salary;
         $data->recruitment_amount = $request->recruitment_amount;
         $data->recruitment_age = $request->recruitment_age;
@@ -282,8 +290,13 @@ class EnterpriseController extends Controller
         $data->career_id = $request->career_id;
         $data->formality_id = $request->formality_id;
         $data->enterprise_id = $request->enterprise_id;
+        $file =  $request->recruitment_img;
+        $path = 'uploads/tintuyendung/';
+        $modifiedFileName = time().'-'.$file->getClientOriginalName();
+        if($file->move($path,$modifiedFileName)){
+            $data->recruitment_img = $path.$modifiedFileName;
+        }
         $data->save();
-        // $request->recruitment_img->storeAs('tintuyendung', $filename);
         // dd($data);
         return redirect()->intended('enterprise/list_ttd');
     }
@@ -303,12 +316,6 @@ class EnterpriseController extends Controller
         
         $data->recruitment_name = $request->recruitment_name;
         $data->recruitment_slug = str_slug($request->recruitment_name);
-        if(!empty($request->recruitment_img)) {
-            $filename = $request->recruitment_img->getClientOriginalName();
-            $data->recruitment_img = $filename;
-            $request->recruitment_img->storeAs('tintuyendung', $filename);
-        } 
-        
         $data->recruitment_salary = $request->recruitment_salary;
         $data->recruitment_amount = $request->recruitment_amount;
         $data->recruitment_age = $request->recruitment_age;
@@ -326,6 +333,12 @@ class EnterpriseController extends Controller
         $data->career_id = $request->career_id;
         $data->formality_id = $request->formality_id;
         $data->enterprise_id = $request->enterprise_id;
+         $file =  $request->recruitment_img;
+        $path = 'uploads/tintuyendung/';
+        $modifiedFileName = time().'-'.$file->getClientOriginalName();
+        if($file->move($path,$modifiedFileName)){
+            $data->recruitment_img = $path.$modifiedFileName;
+        }
         $data->save();
         
         // dd($data);
