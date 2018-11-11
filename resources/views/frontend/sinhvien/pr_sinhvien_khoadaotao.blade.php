@@ -62,7 +62,7 @@
                         <div class="student-title">
                             <div class="row">
                                 <div class="col-md-10 student-title-h3">
-                                    <h3 class="text-capitalize"><a href="{{url('student/khoadaotao/'.$kdt->id)}}"><strong>{!! $kdt->training_name !!}</strong></a></h3>
+                                    <h3 class="text-capitalize"><a href="{{url('student/khoadaotao/'.$kdt->id)}}"><strong>{{$kdt->training_name}}</strong></a></h3>
                                     <p class="text-secondary">{{$kdt->enterprise_name}} - {{$kdt->area_name}}</p>
                                 </div>
                                 <div class="col-md-2 student-content-col text-right student-content-col-nop">
@@ -75,7 +75,7 @@
                         <div class="row student-content">
                             <div class="col-md-10 student-content-col">
                                 
-                                <p class="noidung-post-x">{{$kdt->training_describe}}</p>
+                                <p class="noidung-post-x">{!! $kdt->training_describe !!}</p>
                                  <p class="time-up">Ngày bắt đầu: {{date("d/m/Y" ,strtotime($kdt->created_at))}}</p>
                             </div>
                             
