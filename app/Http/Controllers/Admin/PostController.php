@@ -225,6 +225,7 @@ class PostController extends Controller
         if($file->move($path,$modifiedFileName)){
             $enter->careerorientation_img = $path.$modifiedFileName;
         }
+        $enter->save();
     	return redirect('admin/baiviet/dinhhuongnghe/danhsach')->with('success', 'Thêm định hướng nghề nghiệp thành công!!');
     }
     public function getEditDinhhuongnghe($id) {
