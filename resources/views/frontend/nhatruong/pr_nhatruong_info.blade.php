@@ -98,7 +98,7 @@
                     <div class="col-md-4 std_col">
                         <div class="" style="background: white">
                             @if(!empty($school_id->school_logo))
-                                <img style="width: 100%" src="{{asset('../storage/app/school/'.$school_id->school_logo)}}" alt="">
+                                <img style="width: 100%" src="{{asset('/'.$school_id->school_logo)}}" alt="">
                                 @else
                                 <p class="text-center p-5"><i class="fas fa-user-circle fa-10x text-blue"></i></p>
                               @endif

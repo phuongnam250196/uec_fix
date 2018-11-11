@@ -121,7 +121,7 @@
                         </div>
                         <div class=" col-md-4 kdt_col">
                             <div class="text-center kdt_company">
-                                <a href="#"><img class="rounded-circle" src="{{asset('../storage/app/public/'.$kdt->enterprise_logo)}}" alt=""></a>
+                                <a href="#"><img class="rounded-circle" src="{{asset('/'.$kdt->enterprise_logo)}}" alt=""></a>
                                 <p><strong>{{$kdt->enterprise_name}}</strong></p>
                                 <div class="five_row">{!! $kdt->enterprise_describe !!}</div>
                                 <div class="">

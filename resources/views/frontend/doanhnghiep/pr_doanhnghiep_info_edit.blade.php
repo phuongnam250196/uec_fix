@@ -96,7 +96,7 @@
 
                     <div class="col-md-4 std_col">
                         <div class="" style="background: white">
-                            <img onclick="a()"  style="width: 100%" src="{{asset('../storage/app/public/'.$data->enterprise_logo)}}">
+                            <img onclick="a()"  style="width: 100%" src="{{asset('/'.$data->enterprise_logo)}}">
                             <form class="up_img" enctype="multipart/form-data" method="POST">
                                 <div class="form-group">
                                   <input type="file" name="dn_logo" class="form-control" hidden>

@@ -46,7 +46,7 @@
         @foreach(tin_new() as $new)
         <li>
             <div class="media">
-              <a href="{{url('student/tintuyendung/'.$new->id)}}"><img src="{{asset('local/storage/app/tintuyendung/'.$new->recruitment_img)}}"></a>
+              <a href="{{url('student/tintuyendung/'.$new->id)}}"><img src="{{asset('/'.$new->recruitment_img)}}"></a>
               <div class="media-body">
                 <h4><a href="{{url('student/tintuyendung/'.$new->id)}}">{{$new->recruitment_name}}</a></h4>
                 <div class="media-body-nhatruong">

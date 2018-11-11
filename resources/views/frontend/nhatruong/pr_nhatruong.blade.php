@@ -1,3 +1,4 @@
+
 @extends('frontend.master')
 @section('title', 'Nhà trường')
 @section('banner')
@@ -31,7 +32,7 @@
                                 </div>
                                 <div class="row student-content">
                                     <div class="col-md-4 student-content-col">
-                                        <img src="{{asset('../storage/app/tintuc/'.$tin->news_img)}}" style="width:100%" alt="">
+                                        <img src="{{asset('/'.$tin->news_img)}}" style="width:100%" alt="">
                                     </div>
                                     <div class="col-md-8 student-content-col">
                                         <p class="five-row">

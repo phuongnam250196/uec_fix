@@ -42,7 +42,7 @@
                                 <div class="form-group" >
                                     <label>Ảnh khóa đào tạo</label>
                                     <input id="img" type="file" name="recruitment_img" class="form-control" style="display: none" onchange="changeImg(this)" >
-                                    <img id="avatar" class="thumbnail" src="{{url('../storage/app/tintuyendung/'.$recruit->recruitment_img)}}" width="100%">
+                                    <img id="avatar" class="thumbnail" src="{{url('/'.$recruit->recruitment_img)}}" width="100%">
                                     @if($errors->has('recruitment_img'))
                                       <p class="help text-danger">{{ $errors->first('recruitment_img') }}</p>
                                     @endif

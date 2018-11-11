@@ -42,7 +42,7 @@
                         <div class="row student-content">
                             <div class="col-md-5 student-content-col enterprise-content-col">
                                 <div class="card">
-                                    <img src="{{asset('../storage/app/tintuyendung/'.$ti->recruitment_img)}}" style="width:100%" alt="">
+                                    <img src="{{asset('/'.$ti->recruitment_img)}}" style="width:100%" alt="">
                                     <div class="card-body">
                                         <h4 class="card-title text-center"><a href="{{url('/enterprise/detail_ttd/'.$ti->id)}}">{{$ti->recruitment_name}}</a></h4>
                                         <div class="card-text">{!! $ti->recruitment_describe !!}</div>
@@ -77,7 +77,7 @@
                                         @if($j->recruitment_id == $ti->id)
                                         <div class="media">
                                             @if(!empty($j->student_img))
-                                                <img src="{{asset('../storage/app/sinhvien/'.$j->student_img)}}" class="rounded-circle" style="width:60px; height: 60px;">
+                                                <img src="{{asset('/'.$j->student_img)}}" class="rounded-circle" style="width:60px; height: 60px;">
                                             @else
                                                 <i class="fas fa-user-circle fa-4x" style="width:60px;"></i>    
                                             @endif

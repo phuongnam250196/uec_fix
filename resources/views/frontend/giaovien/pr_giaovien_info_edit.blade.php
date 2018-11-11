@@ -87,7 +87,7 @@
 
                     <div class="col-md-4 std_col">
                         <div class="" style="background: white">
-                            <img onclick="a()"  style="width: 100%" src="{{asset('../storage/app/giaovien/'.$teach->teacher_img)}}">
+                            <img onclick="a()"  style="width: 100%" src="{{asset('/'.$teach->teacher_img)}}">
                             <form class="up_img" enctype="multipart/form-data" method="POST">
                                 <div class="form-group">
                                   <input type="file" name="img" class="form-control" hidden>

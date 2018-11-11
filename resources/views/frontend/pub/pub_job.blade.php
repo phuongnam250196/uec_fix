@@ -39,7 +39,7 @@
                             </div>
                             <div class="col-md-4 thongtinsinhvien-img">
                                 @foreach($jobfair_other as $other)
-                                    <img src="{{asset('../storage/app/jobfair/'.$other->jobfair_img)}}">
+                                    <img src="{{asset('/'.$other->jobfair_img)}}">
                                 @endforeach
                             </div>
                         </div>

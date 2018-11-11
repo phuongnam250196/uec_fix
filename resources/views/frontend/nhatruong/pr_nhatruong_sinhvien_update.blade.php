@@ -183,7 +183,7 @@
 
                     <div class="col-md-4 std_col">
                         <div class="" style="background: white">
-                            <img onclick="a()"  style="width: 100%" src="{{asset('../storage/app/sinhvien/'.$school->student_img)}}">
+                            <img onclick="a()"  style="width: 100%" src="{{asset('/'.$school->student_img)}}">
                             <p class="text-center">TLU</p>
                         </div>
                     </div>

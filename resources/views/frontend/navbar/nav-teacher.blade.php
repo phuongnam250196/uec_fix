@@ -31,7 +31,7 @@
         @foreach(tin_new() as $new)
         <li>
             <div class="media">
-              <img src="{{asset('local/storage/app/tintuyendung/'.$new->recruitment_img)}}">
+              <img src="{{asset('/'.$new->recruitment_img)}}">
               <div class="media-body">
                 <h4><a href="#">{{$new->recruitment_name}}</a></h4>
                 <div class="media-body-nhatruong">

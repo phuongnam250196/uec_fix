@@ -68,7 +68,7 @@
                     <div class="col-md-4 std_col">
                         <div class="" style="background: white">
                           @if(!empty($teach_id->teacher_img))
-                            <img style="width: 100%" src="{{asset('../storage/app/giaovien/'.$teach_id->teacher_img)}}" alt="">
+                            <img style="width: 100%" src="{{asset('/'.$teach_id->teacher_img)}}" alt="">
                             @else
                             <p class="text-center p-5"><i class="fas fa-user-circle fa-10x text-blue"></i></p>
                           @endif

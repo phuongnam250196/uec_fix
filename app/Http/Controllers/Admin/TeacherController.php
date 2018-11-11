@@ -36,19 +36,23 @@ class TeacherController extends Controller
     }
     public function postThongtin(AddTeacherInfoRequest $request) {
         if(!Input::get('save')) {
-            $filename = $request->gv_img->getClientOriginalName();
             $teach = new TeacherModel;
             $teach->teacher_name = $request->gv_name;
             $teach->teacher_slug = str_slug($request->gv_name);
-            $teach->teacher_img = $filename;
             $teach->teacher_birthday = $request->gv_birthday;;
             $teach->teacher_email = $request->gv_email;
             $teach->teacher_phone = $request->gv_phone;
             $teach->teacher_address = $request->gv_address;
             $teach->area_id = $request->gv_area;
             $teach->science_id = $request->gv_science;
+
+            $file =  $request->gv_img;
+            $path = 'uploads/giaovien/';
+            $modifiedFileName = time().'-'.$file->getClientOriginalName();
+            if($file->move($path,$modifiedFileName)){
+                $enter->teacher_img = $path.$modifiedFileName;
+            }
             $teach->save();
-            $request->gv_img->storeAs('giaovien', $filename);
             return redirect('admin/giaovien/thongtin/list')->with('message', 'Thêm mới thành công');
         } else {
             if($request->hasFile('gv_excel')){
@@ -122,11 +126,6 @@ class TeacherController extends Controller
         $teach =TeacherModel::find($id);
         $teach->teacher_name = $request->gv_name;
         $teach->teacher_slug = str_slug($request->gv_name);
-        if(!empty($request->gv_img)) {
-            $filename = $request->gv_img->getClientOriginalName();
-            $teach->teacher_img = $filename;
-            $request->gv_img->storeAs('giaovien', $filename);
-        }
         
         $teach->teacher_birthday = $request->gv_birthday;;
         $teach->teacher_email = $request->gv_email;
@@ -134,6 +133,13 @@ class TeacherController extends Controller
         $teach->teacher_address = $request->gv_address;
         $teach->area_id = $request->gv_area;
         $teach->science_id = $request->gv_science;
+        
+        $file =  $request->gv_img;
+        $path = 'uploads/giaovien/';
+        $modifiedFileName = time().'-'.$file->getClientOriginalName();
+        if($file->move($path,$modifiedFileName)){
+            $enter->teacher_img = $path.$modifiedFileName;
+        }
         $teach->save();
         
         return redirect()->intended('admin/giaovien/thongtin/list')->with("success", "Sửa thông tin giáo viên thành công");;

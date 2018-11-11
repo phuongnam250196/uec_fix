@@ -24,14 +24,14 @@
                     <div class="row">
                         <div class="col-lg-4">
                             <div class="khoadaotao_child">
-                                <img class="card-img-top" src="{{asset('../storage/app/khoadaotao/'.$kdt->training_img)}}">
+                                <img class="card-img-top" src="{{asset('/'.$kdt->training_img)}}">
                             </div>
                             <br>
                             <div class="khoadaotao_child">
                                 <h4 class="text-center text-uppercase">Khóa học liên quan</h4>
                                 @foreach($kdts as $k)
                                 <div class="media">
-                                  <a href="{{url('/khoadaotao/'.$k->id)}}"><img src="{{asset('../storage/app/khoadaotao/'.$k->training_img)}}"></a>
+                                  <a href="{{url('/khoadaotao/'.$k->id)}}"><img src="{{asset('/'.$k->training_img)}}"></a>
                                   <div class="media-body">
                                     <p><a href="{{url('/khoadaotao/'.$k->id)}}">{{$k->training_name}}</a></p>
                                   </div>

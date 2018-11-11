@@ -1,3 +1,4 @@
+
 @extends('frontend.master')
 @section('title', 'DN | Tin tuyển dụng')
 @section('banner')
@@ -89,7 +90,7 @@
                         </div>
                         <div class="col-md-4 kdt_col">
                             <div class="text-center kdt_company">
-                                <a href="#"><img class="rounded-circle" src="{{asset('../storage/app/public/'.$tin->enterprise_logo)}}" alt=""></a>
+                                <a href="#"><img class="rounded-circle" src="{{asset('/'.$tin->enterprise_logo)}}" alt=""></a>
                                 <p><a href="#"><strong>{{$tin->enterprise_name}}</strong></a></p>
                                 <p>{{$tin->enterprise_describe}}</p>
                                 <div class="">

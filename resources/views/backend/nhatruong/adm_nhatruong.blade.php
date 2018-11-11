@@ -129,7 +129,7 @@
                               <tr>
                                 <td>Mã trường</td>
                                 <td>{{$s->school_code}}</td>
-                                <td  rowspan="3" class="text-right"><img style="width:100px; height: 100px" src="{{asset('../storage/app/school/'.$s->school_logo)}}" alt=""></td>
+                                <td  rowspan="3" class="text-right"><img style="width:100px; height: 100px" src="{{asset('/'.$s->school_logo)}}" alt=""></td>
                               </tr>
                               <tr>
                                 <td>Tên trường</td>

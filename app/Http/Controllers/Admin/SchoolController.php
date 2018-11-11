@@ -21,20 +21,24 @@ class SchoolController extends Controller
     	return view('backend.nhatruong.adm_nhatruong', compact('area', 's'));
     }
     public function postThongtin(AddSchoolInfoRequest $request) {
-    	$filename = $request->nt_logo->getClientOriginalName();
     	$scl = new SchoolModel;
     	$scl->school_code = $request->nt_code;
     	$scl->school_name = $request->nt_name;
     	$scl->school_slug = str_slug($request->nt_name);
-    	$scl->school_logo = $filename;
     	$scl->school_address = $request->nt_address;
     	$scl->school_email = $request->nt_email;
     	$scl->school_phone = $request->nt_phone;
     	$scl->school_web = $request->nt_website;
     	$scl->school_describe = $request->nt_describe;
 		$scl->area_id = $request->nt_area;
-		$scl->save();
-		$request->nt_logo->storeAs('school', $filename);
+
+        $file =  $request->nt_logo;
+        $path = 'uploads/school/';
+        $modifiedFileName = time().'-'.$file->getClientOriginalName();
+        if($file->move($path,$modifiedFileName)){
+            $enter->school_logo = $path.$modifiedFileName;
+        }
+        $scl->save();
     	return back();
     }
     public function getEditThongtin($id) {
@@ -48,11 +52,6 @@ class SchoolController extends Controller
         $scl = SchoolModel::find($id);
         $scl->school_code = $request->nt_code;
         $scl->school_name = $request->nt_name;
-        if(!empty($request->nt_logo)) {
-            $filename = $request->nt_logo->getClientOriginalName();
-            $scl->school_logo = $filename;
-            $request->nt_logo->storeAs('school', $filename);
-        }
         $scl->school_slug = str_slug($request->nt_name);
         $scl->school_address = $request->nt_address;
         $scl->school_email = $request->nt_email;
@@ -60,6 +59,13 @@ class SchoolController extends Controller
         $scl->school_web = $request->nt_website;
         $scl->school_describe = $request->nt_describe;
         $scl->area_id = $request->nt_area;
+
+        $file =  $request->nt_logo;
+        $path = 'uploads/school/';
+        $modifiedFileName = time().'-'.$file->getClientOriginalName();
+        if($file->move($path,$modifiedFileName)){
+            $enter->school_logo = $path.$modifiedFileName;
+        }
         $scl->save();
         
         return redirect()->intended('admin/nhatruong/thongtin/')->with("success", "Sửa thông tin nhà trường thành công");

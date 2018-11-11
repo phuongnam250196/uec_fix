@@ -26,7 +26,7 @@
                             <div class="card">
                                 <div class="hovereffect">
                                 {{-- <img class="img-responsive" src="http://placehold.it/350x200" alt=""> --}}
-                                <img class="img-responsive card-img-top" src="{{asset('../storage/app/tintuyendung/'.$tim->recruitment_img)}}">
+                                <img class="img-responsive card-img-top" src="{{asset('/'.$tim->recruitment_img)}}">
                                 <div class="overlay">
                                    <h2>{{$tim->recruitment_name}}</h2>
                                    <a class="info" href="{{url('timviec/'.$tim->id)}}">Xem chi tiết</a>

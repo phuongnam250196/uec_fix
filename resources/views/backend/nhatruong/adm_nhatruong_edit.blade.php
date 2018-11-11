@@ -47,7 +47,7 @@
                                     <div class="form-group">
                                         <label>Logo trường</label>
                                         <input id="img" type="file" name="nt_logo" class="form-control" style="display: none" onchange="changeImg(this)" >
-                                        <img id="avatar" class="thumbnail" src="{{url('../storage/app/school/'.$school->school_logo)}}" width="100%">
+                                        <img id="avatar" class="thumbnail" src="{{url('/'.$school->school_logo)}}" width="100%">
                                         @if($errors->has('nt_logo'))
                                           <p class="help text-danger">{{ $errors->first('nt_logo') }}</p>
                                         @endif

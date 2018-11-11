@@ -29,7 +29,7 @@
                                 {!! $huongdn->towardbusiness_content !!}
                             </div>
                             <div class="col-md-4 thongtinsinhvien-img">
-                                <img src="{{asset('../storage/app/huongdoanhnghiep/'.$huongdn->towardbusiness_img)}}">
+                                <img src="{{asset('/'.$huongdn->towardbusiness_img)}}">
                             </div>
                         </div>
                     </div>

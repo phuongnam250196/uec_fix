@@ -79,7 +79,7 @@
                                 </div>
                                 
                                 <div class="form-group">
-                                    <label>Logo trường</label><img src="{{asset('../storage/app/school/'.$school2->school_logo)}}" style="width: 100%">
+                                    <label>Logo trường</label><img src="{{asset('/'.$school2->school_logo)}}" style="width: 100%">
                                 </div>
                             </div>
                         </div>

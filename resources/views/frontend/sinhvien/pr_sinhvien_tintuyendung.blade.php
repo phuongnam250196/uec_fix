@@ -75,7 +75,7 @@
                         <br>
                         <div class="row student-content">
                             <div class="col-md-3 student-content-col">
-                                <img src="{{asset('../storage/app/tintuyendung/'.$tintd->recruitment_img)}}" style="width:100%; padding-top: 7px;" alt="">
+                                <img src="{{asset('/'.$tintd->recruitment_img)}}" style="width:100%; padding-top: 7px;" alt="">
                             </div>
                             <div class="col-md-7 student-content-col">
                                 <div class="noidung-post-x">{!! $tintd->recruitment_describe !!}</div>

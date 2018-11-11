@@ -32,7 +32,7 @@
                                 <div class="form-group" >
                                     <label>Ảnh khóa đào tạo</label>
                                     <input id="img" type="file" name="training_img" class="form-control" style="display: none" onchange="changeImg(this)" >
-                                    <img id="avatar" class="thumbnail" src="{{url('../storage/app/khoadaotao/'.$train->training_img)}}" width="100%">
+                                    <img id="avatar" class="thumbnail" src="{{url('/'.$train->training_img)}}" width="100%">
                                     @if($errors->has('training_img'))
                                       <p class="help text-danger">{{ $errors->first('training_img') }}</p>
                                     @endif

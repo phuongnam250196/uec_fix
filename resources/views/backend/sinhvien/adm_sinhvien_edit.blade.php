@@ -91,9 +91,9 @@
                                         <label>Ảnh đại diện </label>
                                         <input id="img" type="file" name="student_img" class="form-control" style="display: none" onchange="changeImg(this)" >
                                         @if(!empty($student->student_img))
-                                            <img id="avatar" class="thumbnail" src="{{url('../storage/app/sinhvien/'.$student->student_img)}}" width="100%">
+                                            <img id="avatar" class="thumbnail" src="{{url('/'.$student->student_img)}}" width="100%">
                                         @else
-                                            <img id="avatar" required="" class="thumbnail" src="{{url('public/upload/images/new_seo-10-512.png')}}" width="100%">
+                                            <img id="avatar" required="" class="thumbnail" src="{{url('upload/images/new_seo-10-512.png')}}" width="100%">
                                         @endif
                                         @if($errors->has('img'))
                                           <p class="help text-danger">{{ $errors->first('img') }}</p>

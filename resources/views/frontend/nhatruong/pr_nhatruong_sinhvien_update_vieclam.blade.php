@@ -78,7 +78,7 @@
 
                     <div class="col-md-4 std_col">
                         <div class="" style="background: white">
-                            <img onclick="a()"  style="width: 100%" src="{{asset('../storage/app/school/'.$school->school_logo)}}">
+                            <img onclick="a()"  style="width: 100%" src="{{asset('/'.$school->school_logo)}}">
                             <p class="text-center">TLU</p>
                         </div>
                     </div>

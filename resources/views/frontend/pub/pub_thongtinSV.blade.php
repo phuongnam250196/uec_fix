@@ -29,7 +29,7 @@
                                 {!! $infost->infostudent_content !!}
                             </div>
                             <div class="col-md-4 thongtinsinhvien-img">
-                                <img src="{{asset('../storage/app/thongtinSV/'.$infost->infostudent_img)}}">
+                                <img src="{{asset('/'.$infost->infostudent_img)}}">
                             </div>
                         </div>
                     </div>

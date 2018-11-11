@@ -25,7 +25,7 @@
                             <div class="timviec-col-2 col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                 <div class="card">
                                     <div class="hovereffect">
-                                        <img class="card-img-top" src="{{asset('../storage/app/khoadaotao/'.$kdt->training_img)}}">
+                                        <img class="card-img-top" src="{{asset('/'.$kdt->training_img)}}">
                                         <div class="overlay">
                                            <h2>{{$kdt->training_name}}</h2>
                                            <a class="info" href="{{url('khoadaotao/'.$kdt->id)}}">link here</a>

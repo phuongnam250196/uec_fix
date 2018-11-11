@@ -47,11 +47,6 @@ class StudentController extends Controller
     	$std->student_code = $request->student_code;
     	$std->student_name = $request->student_name;
     	$std->student_slug = str_slug($request->student_name);
-        if(!empty($request->student_img)) {
-            $filename = $request->img->getClientOriginalName();
-            $std->student_img = $filename;
-            $request->student_img->storeAs('sinhvien', $filename);
-        }
     	$std->student_birthday = $request->student_birthday;
     	$std->student_gender = $request->student_gender;
     	$std->student_phone = $request->student_phone;
@@ -70,6 +65,13 @@ class StudentController extends Controller
     	$std->student_tick = 1;
         $std->input_source = 'Admin';
 		$std->area_id = $request->area_id;
+
+        $file =  $request->student_img;
+        $path = 'uploads/sinhvien/';
+        $modifiedFileName = time().'-'.$file->getClientOriginalName();
+        if($file->move($path,$modifiedFileName)){
+            $enter->student_img = $path.$modifiedFileName;
+        }
 		$std->save();
 
     	return redirect()->intended('admin/sinhvien/thongtin');
@@ -92,12 +94,6 @@ class StudentController extends Controller
             $std->student_code = $request->student_code;
             $std->student_name = $request->student_name;
             $std->student_slug = str_slug($request->student_name);
-            // dd($request->img);
-            if(!empty($request->student_img)) {
-                $filename = $request->student_img->getClientOriginalName();
-                $std->student_img = $filename;
-                $request->student_img->storeAs('sinhvien', $filename);
-            }
             $std->student_birthday = $request->student_birthday;
             $std->student_gender = $request->student_gender;
             $std->student_phone = $request->student_phone;
@@ -115,6 +111,12 @@ class StudentController extends Controller
             $std->student_timeserving = $request->student_timeserving;
             
             $std->area_id = $request->area_id;
+            $file =  $request->student_img;
+            $path = 'uploads/sinhvien/';
+            $modifiedFileName = time().'-'.$file->getClientOriginalName();
+            if($file->move($path,$modifiedFileName)){
+                $enter->student_img = $path.$modifiedFileName;
+            }
             $std->save();
         return redirect()->intended('admin/sinhvien/thongtin');
     }
