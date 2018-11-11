@@ -9,7 +9,7 @@
 <section id="dieuhuong-doc">
     <div class="container">
         <div class="row">
-            <div class="col-md-4 nav-doc order-2 order-md-1 wow fadeInUp" data-wow-delay="1.5s">
+            <div class="col-md-4 nav-doc order-2 order-md-1">
                 <nav class="nav-child">
                     <div class="nav-child-title text-center">
                         <h3>Bài viết mới nhất</h3>
@@ -25,7 +25,7 @@
                     </ul>
                 </nav> 
                 
-                <nav class="nav-child wow fadeInUp"  data-wow-delay="1.5s">
+                <nav class="nav-child" >
                     <div class="nav-child-title text-center">
                         <h3>Sự kiện gần nhất</h3>
                     </div>
@@ -62,7 +62,7 @@
                     <p class="post">Bài viết</p>
                     <div class="">
                         @foreach($news as $new2)
-                        <div class="post-child wow fadeInRight"  data-wow-delay="1.5s">
+                        <div class="post-child">
                             <h3><a href="{{url('baiviet/'.$new2->id)}}">{{$new2->news_name}}</a></h3>
                             <p class="time-up">{{$new2->created_at}}</p>
                             <div class="x">
