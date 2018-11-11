@@ -66,7 +66,7 @@
                             <h3><a href="{{url('baiviet/'.$new2->id)}}">{{$new2->news_name}}</a></h3>
                             <p class="time-up">{{$new2->created_at}}</p>
                             <div class="x">
-                                <img src="{{asset('../storage/app/tintuc/'.$new2->news_img)}}" alt="">
+                                <img src="{{asset('/'.$new2->news_img)}}" alt="">
                                 <div class="noidung-post-x">
                                     {!! strip_tags(preg_replace("/<img[^>]+\>/i", "(image) ", $new2->news_content)) !!}
                                     {{-- {!! preg_replace("/<img[^>]+\>/i", "(image) ", $new2->news_content) !!} --}}
