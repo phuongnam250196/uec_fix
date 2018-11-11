@@ -38,7 +38,7 @@ class PostController extends Controller
     	$enter->news_slug = str_slug($request->tt_title);
     	$enter->news_content = $request->tt_content;
 		$file =  $request->tt_img;
-        $path = 'uploads/tintuc';
+        $path = 'uploads/tintuc/';
         $modifiedFileName = time().'-'.$file->getClientOriginalName();
         if($file->move($path,$modifiedFileName)){
             $enter->news_img = $path.$modifiedFileName;
@@ -57,7 +57,7 @@ class PostController extends Controller
         $enter->news_slug = str_slug($request->tt_title);
         $enter->news_content = $request->tt_content;
         $file =  $request->tt_img;
-        $path = 'uploads/tintuc';
+        $path = 'uploads/tintuc/';
         $modifiedFileName = time().'-'.$file->getClientOriginalName();
         if($file->move($path,$modifiedFileName)){
             $enter->news_img = $path.$modifiedFileName;
@@ -85,7 +85,7 @@ class PostController extends Controller
     	$enter->introuec_slug = str_slug($request->tt_title);
     	$enter->introuec_content = $request->tt_content;
 		$file =  $request->tt_img;
-        $path = 'uploads/gioithieuUEC';
+        $path = 'uploads/gioithieuUEC/';
         $modifiedFileName = time().'-'.$file->getClientOriginalName();
         if($file->move($path,$modifiedFileName)){
             $enter->introuec_img = $path.$modifiedFileName;
@@ -103,7 +103,7 @@ class PostController extends Controller
         $enter->introuec_name = $request->tt_title;
         $enter->introuec_slug = str_slug($request->tt_title);
         $file =  $request->tt_img;
-        $path = 'uploads/gioithieuUEC';
+        $path = 'uploads/gioithieuUEC/';
         $modifiedFileName = time().'-'.$file->getClientOriginalName();
         if($file->move($path,$modifiedFileName)){
             $enter->introuec_img = $path.$modifiedFileName;
