@@ -36,7 +36,7 @@
                               <div class="form-group">
                                   <label>Chọn ảnh</label>
                                   <input id="img" type="file" name="tt_img" class="form-control" style="display: none" onchange="changeImg(this)" >
-                                  <img id="avatar" class="thumbnail" src="{{url('../storage/app/tintuc/'.$data->news_img)}}" width="100%">
+                                  <img id="avatar" class="thumbnail" src="{{url('/'.$data->news_img)}}" width="100%">
                               </div>
                             </div>
                             <div class="col-lg-12">
