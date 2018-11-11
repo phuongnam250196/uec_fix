@@ -62,7 +62,7 @@
                         <div class="student-title">
                             <div class="row">
                                 <div class="col-md-10 student-title-h3">
-                                    <h3 class="text-capitalize"><a href="{{url('student/khoadaotao/'.$kdt->id)}}"><strong>{{$kdt->training_name}}</strong></a></h3>
+                                    <h3 class="text-capitalize"><a href="{{url('student/khoadaotao/'.$kdt->id)}}"><strong>{!! $kdt->training_name !!}</strong></a></h3>
                                     <p class="text-secondary">{{$kdt->enterprise_name}} - {{$kdt->area_name}}</p>
                                 </div>
                                 <div class="col-md-2 student-content-col text-right student-content-col-nop">

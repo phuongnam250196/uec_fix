@@ -46,7 +46,7 @@
                                 <img src="{{asset('/'.$tintd->recruitment_img)}}" style="width:100%; padding-top: 7px;" alt="">
                             </div>
                             <div class="col-md-7 student-content-col">
-                                <p class="noidung-post-x">{{$tintd->recruitment_describe}}</p>
+                                <p class="noidung-post-x">{!! $tintd->recruitment_describe !!}</p>
                             </div>
                             
                             <div class="col-md-2 student-content-col text-right student-content-col-nop">
