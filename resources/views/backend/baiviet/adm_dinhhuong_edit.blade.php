@@ -36,7 +36,7 @@
                               <div class="form-group">
                                   <label>Chọn ảnh</label>
                                   <input id="img" type="file" name="tt_img" class="form-control" style="display: none" onchange="changeImg(this)" >
-                                  <img id="avatar" class="thumbnail" src="{{url('../storage/app/dinhhuong/'.$data->careerorientation_img)}}" width="100%">
+                                  <img id="avatar" class="thumbnail" src="{{url('/'.$data->careerorientation_img)}}" width="100%">
                                   @if($errors->has('tt_img'))
                                       <p class="help text-danger">{{ $errors->first('tt_img') }}</p>
                                     @endif

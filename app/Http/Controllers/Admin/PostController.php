@@ -79,14 +79,17 @@ class PostController extends Controller
     	return view('backend.baiviet.adm_gioithieu');
     }
     public function postGioithieu(IntroUecRequest $request) {
-    	$filename = $request->tt_img->getClientOriginalName();
     	$enter = new IntroUecModel;
     	$enter->introuec_name = $request->tt_title;
     	$enter->introuec_slug = str_slug($request->tt_title);
-    	$enter->introuec_img = $filename;
     	$enter->introuec_content = $request->tt_content;
-		$enter->save();
-		$request->tt_img->storeAs('gioithieuUEC', $filename);
+		$file =  $request->tt_img;
+        $path = 'uploads/gioithieuUEC/';
+        $modifiedFileName = time().'-'.$file->getClientOriginalName();
+        if($file->move($path,$modifiedFileName)){
+            $enter->introuec_img = $path.$modifiedFileName;
+        }
+        $enter->save();
     	return back();
     }
     public function getEditGioithieu($id) {
@@ -98,12 +101,12 @@ class PostController extends Controller
         $enter = IntroUecModel::find($id);
         $enter->introuec_name = $request->tt_title;
         $enter->introuec_slug = str_slug($request->tt_title);
-        if(!empty($request->tt_img)) {
-            $filename = $request->tt_img->getClientOriginalName();
-            $enter->introuec_img = $filename;
-             $request->tt_img->storeAs('gioithieuUEC', $filename);
+        $file =  $request->tt_img;
+        $path = 'uploads/gioithieuUEC/';
+        $modifiedFileName = time().'-'.$file->getClientOriginalName();
+        if($file->move($path,$modifiedFileName)){
+            $enter->introuec_img = $path.$modifiedFileName;
         }
-        
         $enter->introuec_content = $request->tt_content;
         $enter->save();
        
@@ -123,14 +126,19 @@ class PostController extends Controller
     	return view('backend.baiviet.adm_huongdoanhnghiep');
     }
     public function postHuongdoanhnghiep(TowardBusinessRequest $request) {
-    	$filename = $request->tt_img->getClientOriginalName();
     	$enter = new TowardBusinessModel;
     	$enter->towardbusiness_name = $request->tt_title;
     	$enter->towardbusiness_slug = str_slug($request->tt_title);
-    	$enter->towardbusiness_img = $filename;
     	$enter->towardbusiness_content = $request->tt_content;
 		$enter->save();
-		$request->tt_img->storeAs('huongdoanhnghiep', $filename);
+
+        $file =  $request->tt_img;
+        $path = 'uploads/huongdoanhnghiep/';
+        $modifiedFileName = time().'-'.$file->getClientOriginalName();
+        if($file->move($path,$modifiedFileName)){
+            $enter->towardbusiness_img = $path.$modifiedFileName;
+        }
+        $enter->save();
     	return back();
     }
     public function getEditHuongdoanhnghiep($id) {
@@ -138,14 +146,14 @@ class PostController extends Controller
         return view('backend.baiviet.adm_huongdoanhnghiep_edit', $data);
     }
     public function postEditHuongdoanhnghiep(EditTowardBusinessRequest $request, $id) {
-        $filename = $request->tt_img->getClientOriginalName();
         $enter = TowardBusinessModel::find($id);
         $enter->towardbusiness_name = $request->tt_title;
         $enter->towardbusiness_slug = str_slug($request->tt_title);
-        if(!empty($request->tt_img)) {
-            $filename = $request->tt_img->getClientOriginalName();
-            $enter->towardbusiness_img = $filename;
-            $request->tt_img->storeAs('huongdoanhnghiep', $filename);
+         $file =  $request->tt_img;
+        $path = 'uploads/huongdoanhnghiep/';
+        $modifiedFileName = time().'-'.$file->getClientOriginalName();
+        if($file->move($path,$modifiedFileName)){
+            $enter->towardbusiness_img = $path.$modifiedFileName;
         }
         $enter->towardbusiness_content = $request->tt_content;
         $enter->save();
@@ -162,14 +170,18 @@ class PostController extends Controller
     	return view('backend.baiviet.adm_thongtinSV');
     }
     public function postThongtinsinhvien(InfoStudentRequest $request) {
-    	$filename = $request->tt_img->getClientOriginalName();
     	$enter = new InfoStudentModel;
     	$enter->infostudent_name = $request->tt_title;
     	$enter->infostudent_slug = str_slug($request->tt_title);
-    	$enter->infostudent_img = $filename;
     	$enter->infostudent_content = $request->tt_content;
-		$enter->save();
-		$request->tt_img->storeAs('thongtinSV', $filename);
+
+         $file =  $request->tt_img;
+        $path = 'uploads/thongtinSV/';
+        $modifiedFileName = time().'-'.$file->getClientOriginalName();
+        if($file->move($path,$modifiedFileName)){
+            $enter->infostudent_img = $path.$modifiedFileName;
+        }
+        $enter->save();
     	return back();
     }
     public function getEditThongtinsinhvien($id) {
@@ -177,14 +189,14 @@ class PostController extends Controller
         return view('backend.baiviet.adm_thongtinSV_edit', $data);
     }
     public function postEditThongtinsinhvien(EditInfoStudentRequest $request, $id) {
-        $filename = $request->tt_img->getClientOriginalName();
         $enter = InfoStudentModel::find($id);
         $enter->infostudent_name = $request->tt_title;
         $enter->infostudent_slug = str_slug($request->tt_title);
-        if(!empty($request->tt_img)) {
-            $filename = $request->tt_img->getClientOriginalName();
-            $enter->infostudent_img = $filename;
-            $request->tt_img->storeAs('thongtinSV', $filename);
+        $file =  $request->tt_img;
+        $path = 'uploads/thongtinSV/';
+        $modifiedFileName = time().'-'.$file->getClientOriginalName();
+        if($file->move($path,$modifiedFileName)){
+            $enter->infostudent_img = $path.$modifiedFileName;
         }
         $enter->infostudent_content = $request->tt_content;
         $enter->save();
@@ -201,14 +213,17 @@ class PostController extends Controller
     	return view('backend.baiviet.adm_dinhhuong');
     }
     public function postDinhhuongnghe(CareerOrientationRequest $request) {
-    	$filename = $request->tt_img->getClientOriginalName();
     	$enter = new CareerorientationModel;
     	$enter->careerorientation_name = $request->tt_title;
     	$enter->careerorientation_slug = str_slug($request->tt_title);
-    	$enter->careerorientation_img = $filename;
     	$enter->careerorientation_content = $request->tt_content;
-		$enter->save();
-		$request->tt_img->storeAs('dinhhuong', $filename);
+
+        $file =  $request->tt_img;
+        $path = 'uploads/dinhhuong/';
+        $modifiedFileName = time().'-'.$file->getClientOriginalName();
+        if($file->move($path,$modifiedFileName)){
+            $enter->careerorientation_img = $path.$modifiedFileName;
+        }
     	return redirect('admin/baiviet/dinhhuongnghe/danhsach')->with('success', 'Thêm định hướng nghề nghiệp thành công!!');
     }
     public function getEditDinhhuongnghe($id) {
@@ -217,14 +232,14 @@ class PostController extends Controller
         return view('backend.baiviet.adm_dinhhuong_edit', compact('data'));
     }
     public function postEditDinhhuongnghe(EditCareerOrientationRequest $request, $id) {
-        
         $enter = CareerorientationModel::find($id);
         $enter->careerorientation_name = $request->tt_title;
         $enter->careerorientation_slug = str_slug($request->tt_title);
-        if(!empty($request->tt_img)) {
-            $filename = $request->tt_img->getClientOriginalName();
-            $enter->careerorientation_img = $filename;
-            $request->tt_img->storeAs('dinhhuong', $filename);
+        $file =  $request->tt_img;
+        $path = 'uploads/dinhhuong/';
+        $modifiedFileName = time().'-'.$file->getClientOriginalName();
+        if($file->move($path,$modifiedFileName)){
+            $enter->careerorientation_img = $path.$modifiedFileName;
         }
         
         $enter->careerorientation_content = $request->tt_content;
@@ -246,14 +261,18 @@ class PostController extends Controller
     	return view('backend.baiviet.adm_jobFair');
     }
     public function postJobfair(JobFairRequest $request) {
-    	$filename = $request->tt_img->getClientOriginalName();
     	$enter = new JobFairModel;
     	$enter->jobfair_name = $request->tt_title;
     	$enter->jobfair_slug = str_slug($request->tt_title);
-    	$enter->jobfair_img = $filename;
     	$enter->jobfair_content = $request->tt_content;
-		$enter->save();
-		$request->tt_img->storeAs($filename);
+
+        $file =  $request->tt_img;
+        $path = 'uploads/jobFair/';
+        $modifiedFileName = time().'-'.$file->getClientOriginalName();
+        if($file->move($path,$modifiedFileName)){
+            $enter->jobfair_img = $path.$modifiedFileName;
+        }
+        $enter->save();
     	return redirect('admin/baiviet/jobfair/danhsach');
     }
      public function getEditJobfair($id) {
@@ -265,10 +284,11 @@ class PostController extends Controller
         $enter = JobFairModel::find($id);
         $enter->jobfair_name = $request->tt_title;
         $enter->jobfair_slug = str_slug($request->tt_title);
-        if(!empty($request->tt_img)) {
-            $filename = $request->tt_img->getClientOriginalName();
-            $enter->jobfair_img = $filename;
-            $request->tt_img->storeAs('jobfair', $filename);
+        $file =  $request->tt_img;
+        $path = 'uploads/jobFair/';
+        $modifiedFileName = time().'-'.$file->getClientOriginalName();
+        if($file->move($path,$modifiedFileName)){
+            $enter->jobfair_img = $path.$modifiedFileName;
         }
         $enter->jobfair_content = $request->tt_content;
         $enter->save();

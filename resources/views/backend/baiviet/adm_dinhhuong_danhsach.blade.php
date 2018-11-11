@@ -42,7 +42,7 @@
                     <tr>
                       <td>{{$dinhhuong->id}}</td>
                       <td><a href="#" data-toggle="modal" data-target="#myModal">{{$dinhhuong->careerorientation_name}}</a></td>
-                      <td><img src="{{asset('../storage/app/dinhhuong/'.$dinhhuong->careerorientation_img)}}" width="100"></td>
+                      <td><img src="{{asset('/'.$dinhhuong->careerorientation_img)}}" width="100"></td>
                       <td><div class="cut-string">{!! strip_tags(preg_replace("/<img[^>]+\>/i", "(image) ", $dinhhuong->careerorientation_content)) !!}</div></td>
                       <td><a href="{{asset('admin/baiviet/dinhhuongnghe/edit/'.$dinhhuong->id)}}" class="btn btn-warning"><i class="fa fa-edit"></i> Sửa</a></td>
                       <td><a href="{{asset('admin/baiviet/dinhhuongnghe/delete/'.$dinhhuong->id)}}" onclick="return confirm('Bạn có chắc chắn muốn xóa không???')" class="btn btn-danger"><i class="fa fa-trash-o"></i> Xóa</a></td>

@@ -40,7 +40,7 @@
                 </div>
                 <div class="">
                   <label>Ảnh minh học</label>
-                 <p> <img src="{{asset('../storage/app/huongdoanhnghiep/'.$huong->towardbusiness_img)}}" width="100"></p>
+                 <p> <img src="{{asset('/'.$huong->towardbusiness_img)}}" width="100"></p>
                 </div>
                 <div>
                   <label>Nội dung</label>

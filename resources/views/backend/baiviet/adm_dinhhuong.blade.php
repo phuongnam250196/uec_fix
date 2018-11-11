@@ -37,7 +37,7 @@
                                     <label>Chọn ảnh</label>
                                     {{-- <input type="file" class="form-control" value="" name="tt_img"> --}}
                                     <input id="img" type="file" name="tt_img" class="form-control" style="display: none" onchange="changeImg(this)" >
-                                    <img id="avatar" class="thumbnail" src="{{url('public/upload/images/new_seo-10-512.png')}}" width="100%">
+                                    <img id="avatar" class="thumbnail" src="{{url('upload/images/new_seo-10-512.png')}}" width="100%">
                                 </div>
                             </div>
                             <div class="col-lg-12">
