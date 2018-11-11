@@ -33,13 +33,11 @@ class PostController extends Controller
     	return view('backend.baiviet.adm_tintuc');
     }
     public function postTintuc(NewsRequest $request) {
-    	// $filename = $request->tt_img->getClientOriginalName();
     	$enter = new NewsModel;
     	$enter->news_name = $request->tt_title;
     	$enter->news_slug = str_slug($request->tt_title);
-    	// $enter->news_img = $filename;
     	$enter->news_content = $request->tt_content;
-		 $file =  $request->tt_img;
+		$file =  $request->tt_img;
         $path = 'uploads/tintuc/';
         $modifiedFileName = time().'-'.$file->getClientOriginalName();
         if($file->move($path,$modifiedFileName)){
@@ -57,15 +55,13 @@ class PostController extends Controller
         $enter = NewsModel::find($id);
         $enter->news_name = $request->tt_title;
         $enter->news_slug = str_slug($request->tt_title);
-        if(!empty($request->tt_img)) {
-            $filename = $request->tt_img->getClientOriginalName();
-            $enter->news_img = $filename;
-            $request->tt_img->storeAs('tintuc', $filename);
-        }
-       
         $enter->news_content = $request->tt_content;
-        $enter->save();
-        
+        $file =  $request->tt_img;
+        $path = 'uploads/tintuc/';
+        $modifiedFileName = time().'-'.$file->getClientOriginalName();
+        if($file->move($path,$modifiedFileName)){
+            $enter->news_img = $path.$modifiedFileName;
+        }
         return redirect('admin/baiviet/tintuc/danhsach')->with("success", "Sửa thành công");
     }
     public function getDanhsachTintuc() {
@@ -257,7 +253,7 @@ class PostController extends Controller
     	$enter->jobfair_img = $filename;
     	$enter->jobfair_content = $request->tt_content;
 		$enter->save();
-		$request->tt_img->storeAs('/', $filename);
+		$request->tt_img->storeAs($filename);
     	return redirect('admin/baiviet/jobfair/danhsach');
     }
      public function getEditJobfair($id) {
