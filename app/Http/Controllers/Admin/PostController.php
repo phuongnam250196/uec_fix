@@ -62,6 +62,7 @@ class PostController extends Controller
         if($file->move($path,$modifiedFileName)){
             $enter->news_img = $path.$modifiedFileName;
         }
+        $enter->save();
         return redirect('admin/baiviet/tintuc/danhsach')->with("success", "Sửa thành công");
     }
     public function getDanhsachTintuc() {
